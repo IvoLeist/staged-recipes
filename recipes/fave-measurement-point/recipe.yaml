@@ -1,0 +1,42 @@
+context:
+  version: "0.1.5"
+  python_min: "3.10"
+
+package:
+  name: fave-measurement-point
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/f/fave-measurement-point/fave_measurement_point-${{ version }}.tar.gz
+  sha256: 9a13075674e2f5f753bd06f112a766e23764d7692c6b38ec7cbe6a82b58c0690
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - poetry-core
+    - pip
+  run:
+    - python >=${{ python_min }},<4.0
+    - numpy <=2.2
+
+tests:
+  - python:
+      python_version: ${{ python_min }}.*
+      imports:
+        - fave_measurement_point
+      pip_check: true
+
+about:
+  homepage: https://pypi.org/project/fave-measurement-point/
+  summary: A library for defining and evaluating formant measurement point heuristics.
+  license: GPL-3.0-only
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - IvoLeist
