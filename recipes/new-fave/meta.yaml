@@ -6,11 +6,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/n/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/new_fave-{{ version }}.tar.gz
   sha256: 42b12360f95ea8a38ef8acb2ee074c7637f5083248d9445a1a77e58898982017
 
 build:
-  skip: true  # [py<310 or py>=314]
   entry_points:
     - fave-extract = new_fave.extract:fave_extract
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
