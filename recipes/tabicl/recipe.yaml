@@ -1,13 +1,13 @@
 context:
-  version: "2.1.1"
+  version: "2.2.0"
 
 recipe:
   name: tabicl-suite
   version: ${{ version }}
 
 source:
-  url: https://github.com/soda-inria/tabicl/releases/download/v${{ version }}/tabicl-${{ version }}.tar.gz
-  sha256: 7abdb1fa878e7a1edfa1c6606bf4189e9cccc20935e8011d7e690f4693c9c5c5
+  url: https://pypi.org/packages/source/t/tabicl/tabicl-${{ version }}.tar.gz
+  sha256: dfc41f2acd9603e4402cedae9e42f9922cfb8cfc9fcf7901d773e26609e47e21
 
 build:
   number: 0
@@ -60,7 +60,6 @@ outputs:
 
         # forecast
         - pandas >=2.1.2
-        - gluonts >=0.16.0
         - statsmodels >=0.14.5
         - matplotlib-base >=3.10.3
 
